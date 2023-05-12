@@ -6,6 +6,46 @@ import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
+const svgRules = [
+  {
+    test: /\.svg$/i,
+    type: "asset",
+    resourceQuery: /url/, // load *.svg?url as assets
+  },
+  {
+    test: /\.svg$/i,
+    issuer: /\.[jt]sx?$/,
+    resourceQuery: /icon/, // load *.svg?icon as an icon i.e. icon: true
+    use: [
+      {
+        loader: "@svgr/webpack",
+        options: {
+          icon: true,
+          typescript: true,
+          ref: true,
+          title: true,
+        },
+      },
+    ],
+  },
+  {
+    test: /\.svg$/i,
+    issuer: /\.[jt]sx?$/,
+    resourceQuery: { not: [/url/, /icon/] }, // exclude if *.svg?url or *.svg?icon
+    use: [
+      {
+        loader: "@svgr/webpack",
+        options: {
+          icon: false,
+          typescript: true,
+          ref: true,
+          title: true,
+        },
+      },
+    ],
+  },
+];
+
 function webpackConfig(_env, { mode = "development" }) {
   const isDevelopment = mode === "development";
 
@@ -40,6 +80,7 @@ function webpackConfig(_env, { mode = "development" }) {
           test: /\.css$/i,
           use: ["style-loader", "css-loader"],
         },
+        ...svgRules,
       ],
     },
     resolve: {
