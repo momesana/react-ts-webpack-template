@@ -1,0 +1,25 @@
+name: Frontend checks
+on: [pull_request]
+
+jobs:
+  frontend-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          architecture: "x64"
+      - name: Initialize project
+        run: |
+          npm ci
+      - name: Run Formatter
+        run: npm run check-format
+      - name: Run linter
+        run: npm run lint
+      - name: Run typecheck
+        run: npm run typecheck
