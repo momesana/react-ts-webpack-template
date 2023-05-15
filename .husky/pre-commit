@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# only check formatting of modified or newly added files
+CHANGED_FILES=$(git --no-pager diff --name-only --cached --diff-filter=AM --relative -- \
+  '*.md' '*.html' '*.yml' '*.yaml' '*.json' '*.js' '*.jsx' '*.ts' '*.tsx' '*.css')
+
+if [ -n "$CHANGED_FILES" ]; then
+  npx prettier --check $CHANGED_FILES
+fi
+
+npm run lint
+npm run typecheck
