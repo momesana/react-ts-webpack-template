@@ -55,6 +55,7 @@ function webpackConfig(_env, { mode = "development" }) {
     entry: "./src/index.tsx",
     devServer: {
       hot: true,
+      historyApiFallback: true,
     },
     output: {
       path: resolve(__dirname, "./dist"),
