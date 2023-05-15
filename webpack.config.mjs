@@ -15,7 +15,7 @@ const svgRules = [
   {
     test: /\.svg$/i,
     issuer: /\.[jt]sx?$/,
-    resourceQuery: /icon/, // load *.svg?icon as an icon i.e. icon: true
+    resourceQuery: { not: [/url/, /component/] }, // load *.svg as icon
     use: [
       {
         loader: "@svgr/webpack",
@@ -31,7 +31,7 @@ const svgRules = [
   {
     test: /\.svg$/i,
     issuer: /\.[jt]sx?$/,
-    resourceQuery: { not: [/url/, /icon/] }, // exclude if *.svg?url or *.svg?icon
+    resourceQuery: /component/, // load *.svg?component as a component
     use: [
       {
         loader: "@svgr/webpack",
