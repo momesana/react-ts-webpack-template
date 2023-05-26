@@ -14,10 +14,13 @@ jobs:
         with:
           node-version: 18
           architecture: "x64"
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - name: Initialize project
-        run: npm ci
+        run: pnpm i --frozen-lockfile
       - name: Run commitlint
-        run: npx commitlint --from=$(git rev-list "origin/${GITHUB_BASE_REF}"..HEAD | sed '1!d')~1
+        run: pnpm dlx commitlint --from=$(git rev-list "origin/${GITHUB_BASE_REF}"..HEAD | sed '1!d')~1
       - name: Ensure linear git history
         run: git merge-base --is-ancestor "origin/${GITHUB_BASE_REF}" HEAD
       - name: Check for fixup or WIP commits

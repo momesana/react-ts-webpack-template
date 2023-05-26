@@ -5,6 +5,7 @@
   "main": "src/index.tsx",
   "type": "module",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "dev": "webpack serve",
     "build": "webpack --mode production",
     "lint": "eslint . --max-warnings=0 --ext js,cjs,mjs,ts,tsx",
