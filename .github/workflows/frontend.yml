@@ -17,11 +17,11 @@ jobs:
       - name: Initialize project
         run: |
           npm ci
-      - name: Run Formatter
+      - name: Run formatter
         run: npm run check-format
       - name: Run linter
         run: npm run lint
-      - name: Run typecheck
+      - name: Run type checks
         run: npm run typecheck
       - name: Run unit tests
         run: npm run test:unit
