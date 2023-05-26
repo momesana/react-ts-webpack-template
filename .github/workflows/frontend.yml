@@ -14,14 +14,17 @@ jobs:
         with:
           node-version: 18
           architecture: "x64"
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - name: Initialize project
         run: |
-          npm ci
+          pnpm i --frozen-lockfile
       - name: Run formatter
-        run: npm run check-format
+        run: pnpm check-format
       - name: Run linter
-        run: npm run lint
+        run: pnpm lint
       - name: Run type checks
-        run: npm run typecheck
+        run: pnpm typecheck
       - name: Run unit tests
-        run: npm run test:unit
+        run: pnpm test:unit
