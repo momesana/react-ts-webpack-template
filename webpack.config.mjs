@@ -64,18 +64,11 @@ function webpackConfig(_env, { mode = "development" }) {
     module: {
       rules: [
         {
-          test: /\.[jt]sx?$/,
-          exclude: /node_modules/,
-          use: [
-            {
-              loader: "babel-loader",
-              options: {
-                plugins: [isDevelopment && "react-refresh/babel"].filter(
-                  Boolean
-                ),
-              },
-            },
-          ],
+          test: /\.tsx?$/,
+          exclude: /(node_modules)/,
+          use: {
+            loader: "swc-loader",
+          },
         },
         {
           test: /\.css$/i,
