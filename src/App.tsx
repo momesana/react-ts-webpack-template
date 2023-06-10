@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <GlobalStyles />
-      <Title>Welcome</Title>
+      <Title css="color: red">Welcome</Title>
       <p>Use this as a starting point to develop your own application :-)</p>
     </>
   );
