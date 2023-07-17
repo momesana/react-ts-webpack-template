@@ -11,5 +11,5 @@ const root = createRoot(container);
 root.render(
   <Suspense fallback="loading">
     <App />
-  </Suspense>
+  </Suspense>,
 );

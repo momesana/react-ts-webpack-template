@@ -71,7 +71,7 @@ function webpackConfig(_env, { mode = "development" }) {
               loader: "babel-loader",
               options: {
                 plugins: [isDevelopment && "react-refresh/babel"].filter(
-                  Boolean
+                  Boolean,
                 ),
               },
             },
