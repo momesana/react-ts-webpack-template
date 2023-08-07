@@ -7,6 +7,7 @@ module.exports = {
     sourceType: "module",
   },
   rules: {
+    "curly": ["error", "all"],
     "no-console": [
       "error",
       {
