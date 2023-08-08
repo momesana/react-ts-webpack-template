@@ -25,4 +25,4 @@ jobs:
         run: git merge-base --is-ancestor "origin/${GITHUB_BASE_REF}" HEAD
       - name: Check for fixup or WIP commits
         run: |
-          ! git log "origin/${GITHUB_BASE_REF}..HEAD" | egrep ' fixup! |wip|Wip|WIP'
+          ! git log "origin/${GITHUB_BASE_REF}..HEAD" | egrep ' fixup! |\b(wip|Wip|WIP)\b'
