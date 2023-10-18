@@ -58,6 +58,7 @@ function webpackConfig(_env, { mode = "development" }) {
       historyApiFallback: true,
     },
     output: {
+      publicPath: "/",
       path: resolve(__dirname, "./dist"),
       filename: "main.js",
     },
