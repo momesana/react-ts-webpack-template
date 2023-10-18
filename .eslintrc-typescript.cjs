@@ -59,6 +59,10 @@ module.exports = {
         format: ["camelCase"],
       },
       {
+        selector: "import",
+        format: ["camelCase", "PascalCase"],
+      },
+      {
         selector: "variableLike",
         format: ["camelCase", "PascalCase"],
       },
