@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import { createRoot } from "react-dom/client";
+import { ErrorBoundary } from "react-error-boundary";
 
 const App = lazy(async () => import("./App"));
 const containerId = "root";
@@ -9,7 +10,9 @@ if (!container) {
 }
 const root = createRoot(container);
 root.render(
-  <Suspense fallback="loading">
-    <App />
-  </Suspense>,
+  <ErrorBoundary fallback={<div>shit hit the fan bruv!</div>}>
+    <Suspense fallback="loading">
+      <App />
+    </Suspense>
+  </ErrorBoundary>,
 );
