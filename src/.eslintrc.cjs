@@ -36,6 +36,8 @@ module.exports = {
       },
     ],
     "react/prop-types": "error",
+    "react/jsx-no-useless-fragment": "error",
+    "react/jsx-uses-vars": "error",
   },
   settings: {
     react: {
