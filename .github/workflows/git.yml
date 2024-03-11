@@ -20,7 +20,7 @@ jobs:
       - name: Initialize project
         run: pnpm i --frozen-lockfile
       - name: Run commitlint
-        run: pnpm dlx commitlint --from=$(git rev-list "origin/${GITHUB_BASE_REF}"..HEAD | sed '1!d')~1
+        run: pnpm exec commitlint --from=$(git rev-list "origin/${GITHUB_BASE_REF}"..HEAD | sed '1!d')~1
       - name: Ensure linear git history
         run: git merge-base --is-ancestor "origin/${GITHUB_BASE_REF}" HEAD
       - name: Check for fixup or WIP commits
