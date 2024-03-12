@@ -1,6 +1,7 @@
 import { memo } from "react";
 import styled from "styled-components";
-import GlobalStyles from "./globalStyles";
+import ThemeProvider from "./components/ThemeProvider";
+import TestPage from "./pages/test";
 
 const Title = styled.h1`
   color: #666;
@@ -8,11 +9,11 @@ const Title = styled.h1`
 
 function App() {
   return (
-    <>
-      <GlobalStyles />
-      <Title>Welcome</Title>
-      <p>Use this as a starting point to develop your own application :-)</p>
-    </>
+    <ThemeProvider>
+      {/* <Title>Welcome</Title>
+      <p>Use this as a starting point to develop your own application :-)</p> */}
+      <TestPage />
+    </ThemeProvider>
   );
 }
 
