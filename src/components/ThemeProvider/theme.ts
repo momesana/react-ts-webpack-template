@@ -16,8 +16,10 @@ export const lightTheme: DefaultTheme = {
 
 export const darkTheme: DefaultTheme = {
   ...defaultTheme,
-  colorText: "#ffffff",
-  colorBgContainer: "#000000",
-  colorBgElevated: "#333333",
+  colorPrimary: "#ededed",
   colorLink: "#48baf7",
+  colorBgContainer: "#3d3d3d",
+  colorBgElevated: "#333333",
+  colorText: "#ffffff",
+  colorTextSecondary: "#888888",
 };

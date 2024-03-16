@@ -46,7 +46,7 @@ const Link = styled.a`
   color: var(--color-link);
 `;
 
-const Typography = styled.p`
+const TypographySample = styled.p`
   color: var(--color-text);
 `;
 
@@ -89,7 +89,7 @@ export default function TestPage(): ReactElement {
             </option>
           ))}
         </select>
-        <Typography>
+        <TypographySample>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio
           facilis repudiandae enim corporis quod molestias eius nostrum quos
           dolore, ipsum animi quo, in neque, architecto iure sed ratione
@@ -100,7 +100,7 @@ export default function TestPage(): ReactElement {
           dolores ex illum quis, amet consectetur ipsa, at delectus voluptatibus
           enim obcaecati quod. Beatae aperiam, atque delectus incidunt suscipit,
           nemo error minus tempora quos, saepe obcaecati.
-        </Typography>
+        </TypographySample>
       </MainSection>
     </MainContainer>
   );
