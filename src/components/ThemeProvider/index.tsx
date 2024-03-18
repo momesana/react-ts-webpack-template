@@ -42,39 +42,44 @@ const getStoredTheme = (): Theme => {
 export default function ThemeProvider({
   children,
 }: PropsWithChildren<EmptyObject>): ReactElement {
-  const [currentTheme, setCurrentTheme] = useState<DefaultTheme>(lightTheme);
   const [currentThemeName, setCurrentThemeName] =
     useState<Theme>(getStoredTheme());
+  const [currentTheme, setCurrentTheme] = useState(() =>
+    selectInitialTheme(currentThemeName),
+  );
 
-  const selectTheme = useCallback((theme: Theme) => {
+  const selectInitialTheme = useCallback((theme: Theme) => {
     if (theme === "system") {
-      detectSystemTheme();
+      return detectSystemTheme();
     } else if (theme === "dark") {
-      setCurrentTheme(darkTheme);
+      return darkTheme;
     } else {
-      setCurrentTheme(lightTheme);
+      return lightTheme;
     }
-    localStorage.setItem("theme", theme);
-    setCurrentThemeName(theme);
   }, []);
 
-  const detectSystemTheme = () => {
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      setCurrentTheme(darkTheme);
-    } else {
-      setCurrentTheme(lightTheme);
-    }
-  };
+  const selectTheme = useCallback(
+    (theme: Theme) => {
+      setCurrentThemeName(theme);
+      localStorage.setItem("theme", theme);
+      setCurrentTheme(selectInitialTheme(theme));
+    },
+    [selectInitialTheme],
+  );
 
-  useEffect(() => {
-    selectTheme(getStoredTheme());
-  }, [selectTheme]);
+  function detectSystemTheme(): DefaultTheme {
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      return darkTheme;
+    } else {
+      return lightTheme;
+    }
+  }
 
   useEffect(() => {
     const mediaQueryList = window.matchMedia("(prefers-color-scheme: dark)");
     const handleChange = () => {
       if (currentThemeName === "system") {
-        detectSystemTheme();
+        setCurrentTheme(detectSystemTheme());
       }
     };
     mediaQueryList.addEventListener("change", handleChange);
