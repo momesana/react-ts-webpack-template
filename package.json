@@ -17,8 +17,8 @@
     "prepare": "husky install",
     "test:unit": "jest test/unit",
     "storybook": "storybook dev -p 6006",
+    "i18n:extract": "node --loader ts-node/esm ./lang/extract-messages.ts",
     "build-storybook": "storybook build"
-    
   },
   "keywords": [],
   "author": "",
@@ -31,6 +31,8 @@
     "@babel/preset-typescript": "^7.23.3",
     "@commitlint/cli": "^19.0.3",
     "@commitlint/config-conventional": "^19.0.3",
+    "@formatjs/cli": "^6.2.7",
+    "@formatjs/cli-lib": "^6.3.6",
     "@jest/globals": "^29.7.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.11",
     "@storybook/addon-essentials": "^7.6.17",
@@ -41,16 +43,20 @@
     "@storybook/react-webpack5": "^7.6.17",
     "@storybook/testing-library": "^0.2.2",
     "@svgr/webpack": "^8.1.0",
+    "@tanstack/eslint-plugin-query": "^5.27.7",
+    "@types/node": "^20.11.28",
     "@types/react": "^18.2.64",
     "@types/react-dom": "^18.2.21",
     "@types/styled-components": "^5.1.34",
     "@typescript-eslint/eslint-plugin": "^7.1.1",
     "@typescript-eslint/parser": "^7.1.1",
     "babel-loader": "^9.1.3",
+    "babel-plugin-formatjs": "^10.5.13",
     "babel-plugin-styled-components": "^2.1.4",
     "css-loader": "^6.10.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-formatjs": "^4.12.2",
     "eslint-plugin-react": "^7.34.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.8.0",
@@ -61,6 +67,7 @@
     "react-refresh": "^0.14.0",
     "storybook": "^7.6.17",
     "style-loader": "^3.3.4",
+    "ts-node": "^10.9.2",
     "type-fest": "^4.11.1",
     "typescript": "^5.4.2",
     "webpack": "^5.90.3",
@@ -68,9 +75,12 @@
     "webpack-dev-server": "^5.0.2"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.28.0",
+    "@tanstack/react-query-devtools": "^5.28.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-error-boundary": "^4.0.13",
+    "react-intl": "^6.6.2",
     "styled-components": "^6.1.8"
   }
 }
