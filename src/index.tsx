@@ -1,18 +1,15 @@
 import { lazy, Suspense } from "react";
-import { createRoot } from "react-dom/client";
+import type { ReactElement } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 
 const App = lazy(async () => import("./App"));
-const containerId = "root";
-const container = document.getElementById(containerId);
-if (!container) {
-  throw Error(`couldn't find element with id ${containerId}!`);
+
+export default function Index(): ReactElement {
+  return (
+    <ErrorBoundary fallback={<div>shit hit the fan bruv!</div>}>
+      <Suspense fallback="loading">
+        <App />
+      </Suspense>
+    </ErrorBoundary>
+  );
 }
-const root = createRoot(container);
-root.render(
-  <ErrorBoundary fallback={<div>shit hit the fan bruv!</div>}>
-    <Suspense fallback="loading">
-      <App />
-    </Suspense>
-  </ErrorBoundary>,
-);

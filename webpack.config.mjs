@@ -52,7 +52,7 @@ function webpackConfig(_env, { mode = "development" }) {
   return {
     mode,
     devtool: isDevelopment ? "eval-source-map" : "source-map",
-    entry: "./src/index.tsx",
+    entry: "./src/bootstrap.tsx",
     devServer: {
       hot: true,
       historyApiFallback: true,
@@ -94,6 +94,10 @@ function webpackConfig(_env, { mode = "development" }) {
       }),
       isDevelopment && new ReactRefreshWebpackPlugin(),
     ].filter(Boolean),
+    performance: {
+      maxEntrypointSize: 150000,
+      hints: "warning",
+    },
   };
 }
 
