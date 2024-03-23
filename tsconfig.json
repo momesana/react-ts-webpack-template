@@ -16,6 +16,7 @@
     "noEmit": true,
     "noImplicitAny": true,
     "allowSyntheticDefaultImports": true,
+    "allowImportingTsExtensions": true,
     "module": "esnext",
     "target": "es2021",
     "allowJs": true,

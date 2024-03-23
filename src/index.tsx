@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy } from "react";
 import { createRoot } from "react-dom/client";
 import { ErrorBoundary } from "react-error-boundary";
 
@@ -11,8 +11,6 @@ if (!container) {
 const root = createRoot(container);
 root.render(
   <ErrorBoundary fallback={<div>shit hit the fan bruv!</div>}>
-    <Suspense fallback="loading">
-      <App />
-    </Suspense>
+    <App />
   </ErrorBoundary>,
 );

@@ -1,7 +1,10 @@
+const unusedIgnorePattern = "^_";
+
 module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:@tanstack/eslint-plugin-query/recommended",
     // prettier needs to come last
     "prettier",
   ],
@@ -148,7 +151,9 @@ module.exports = {
     "@typescript-eslint/no-unused-vars": [
       "error",
       {
-        argsIgnorePattern: "^_",
+        argsIgnorePattern: unusedIgnorePattern,
+        varsIgnorePattern: unusedIgnorePattern,
+        destructuredArrayIgnorePattern: unusedIgnorePattern,
       },
     ],
     "@typescript-eslint/no-useless-constructor": "warn",

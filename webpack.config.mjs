@@ -86,7 +86,7 @@ function webpackConfig(_env, { mode = "development" }) {
       ],
     },
     resolve: {
-      extensions: [".tsx", ".ts", ".js"],
+      extensions: [".tsx", ".ts", ".js", ".json"],
     },
     plugins: [
       new HtmlWebpackPlugin({

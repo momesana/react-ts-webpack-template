@@ -1,0 +1,9 @@
+{
+  "NNQFHO0+LVD2AC/L": {
+    "col": 8,
+    "defaultMessage": "Title",
+    "description": "A title for the test page",
+    "file": "/home/ehsan/repos/sparse.tech/react-ts-webpack-template/src/pages/test.tsx",
+    "line": 29
+  }
+}
