@@ -9,7 +9,6 @@
     "dev": "webpack serve",
     "build": "webpack --mode production",
     "bundle-stats": "webpack --mode production --profile --json > stats.json",
-    "show-bundle-analysis": "pnpm dlx webpack-bundle-analyzer stats.json",
     "bundle-analysis": "pnpm bundle-stats && pnpm dlx webpack-bundle-analyzer stats.json",
     "lint": "eslint . --max-warnings=0 --ext js,cjs,mjs,ts,tsx",
     "typecheck": "tsc --project ./src/tsconfig.json",
