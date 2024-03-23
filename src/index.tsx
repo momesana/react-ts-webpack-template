@@ -6,10 +6,14 @@ const App = lazy(async () => import("./App"));
 
 export default function Index(): ReactElement {
   return (
-    <ErrorBoundary fallback={<div>shit hit the fan bruv!</div>}>
+    <ErrorBoundary FallbackComponent={Fallback}>
       <Suspense fallback="loading">
         <App />
       </Suspense>
     </ErrorBoundary>
   );
+}
+
+function Fallback({ error }: { error: Error }): ReactElement {
+  return <p>{error.message}</p>;
 }

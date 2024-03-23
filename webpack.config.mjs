@@ -94,10 +94,13 @@ function webpackConfig(_env, { mode = "development" }) {
       }),
       isDevelopment && new ReactRefreshWebpackPlugin(),
     ].filter(Boolean),
-    performance: {
-      maxEntrypointSize: 150000,
-      hints: "warning",
-    },
+    performance:
+      mode === "production"
+        ? {
+            maxEntrypointSize: 200000,
+            hints: "warning",
+          }
+        : undefined,
   };
 }
 
