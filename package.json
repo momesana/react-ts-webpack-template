@@ -8,8 +8,8 @@
     "preinstall": "npx only-allow pnpm",
     "dev": "webpack serve",
     "build": "webpack --mode production",
-    "stats": "webpack --mode production --profile --json > stats.json",
-    "bundle-analysis": "pnpm stats && pnpm dlx webpack-bundle-analyzer stats.json",
+    "bundle-stats": "webpack --mode production --profile --json > stats.json",
+    "bundle-analysis": "pnpm bundle-stats && pnpm dlx webpack-bundle-analyzer stats.json",
     "lint": "eslint . --max-warnings=0 --ext js,cjs,mjs,ts,tsx",
     "typecheck": "tsc --project ./src/tsconfig.json",
     "format": "prettier --write .",
@@ -18,7 +18,6 @@
     "test:unit": "jest test/unit",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
-    
   },
   "keywords": [],
   "author": "",
